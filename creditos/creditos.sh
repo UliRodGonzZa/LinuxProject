@@ -29,24 +29,26 @@ Motivacion y agradecimiento para: Ximena Alessandra"
 texto2="→ Tareas designadas: Programacion de login, menu principal,creditos documentacion tecnica."
 texto3="→ Tareas designadas: Desarrollo de modulos de juego,reproductor de musica."
 
+# Vamos al directorio donde está este script
+
 # Creamos carpeta temporal para que otro usuario no tenga problemas al ejecutar
-mkdir ascii_temp
+mkdir -p creditos/ascii_temp
 
 # Convertir imagen Ding.png a ASCII
-jp2a --width=60 imagenes/Ding.png > ascii_temp/Ding_ascii.txt
+jp2a --width=60 creditos/imagenes/Ding.png > creditos/ascii_temp/Ding_ascii.txt
 
 # Convertir imagen Polar.png a ASCII
-jp2a --width=60 imagenes/Polar.png > ascii_temp/Polar_ascii.txt
+jp2a --width=60 creditos/imagenes/Polar.png > creditos/ascii_temp/Polar_ascii.txt
 
 # Funcion para mostrar ASCII de las imagenes seleccionadas
 mostrar_ascii1() {
     echo ""
-    cat ascii_temp/Ding_ascii.txt | lolcat -a -d 1
+    cat creditos/ascii_temp/Ding_ascii.txt | lolcat -a -d 1
 }
 
 mostrar_ascii2() {
     echo ""
-    cat ascii_temp/Polar_ascii.txt | lolcat -a -d 1
+    cat creditos/ascii_temp/Polar_ascii.txt | lolcat -a -d 1
 }
 
 clear
