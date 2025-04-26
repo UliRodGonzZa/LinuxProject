@@ -1,0 +1,17 @@
+# Archivos de audio
+*.mp3
+*.wav
+*.ogg
+
+# Archivos temporales
+*.swp
+*.swo
+*~
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+
+# Carpetas innecesarias
+__pycache__/
+cache/
