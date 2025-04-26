@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# =========================
-# Script de Login mejorado
-# =========================
 
 # Definicion de colores
 RED='\033[1;31m'
@@ -10,7 +7,7 @@ GREEN='\033[1;32m'
 CYAN='\033[1;36m'
 YELLOW='\033[1;33m'
 WHITE='\033[1;37m'
-NC='\033[0m' # No Color (reset)
+NC='\033[0m' # Color para Reset
 
 # Funcion para escribir como maquina de escribir
 escribir_lento() {
