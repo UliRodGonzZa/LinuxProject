@@ -15,7 +15,7 @@ NC='\033[0m' # Resetea el color que estabamos utilizando
 # Bloque de texto que muestra datos generales de nuestro proyecto
 texto="Escuela de procedencia: Universidad Nacional Autonoma de Mexico (UNAM)
 Carrera estudiada: Ingenieria en Computacion
-Repositorio del proyecto: https://github.com/
+Repositorio del proyecto: https://github.com/UliRodGonzZa/LinuxProject
 
 Descripcion del proyecto:
 El proyecto consiste en una terminal de trabajo desarrollada en Bash con el fin de mejorar las habilidades en un SO Linux.
