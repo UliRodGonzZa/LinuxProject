@@ -50,11 +50,10 @@ while true; do
         2) mostrar_sistema ;;
         3) mostrar_fecha ;;
         4) buscar_archivo ;;
-        5) mostrar_creditos ;;
+        5) source creditos/creditos.sh  ;;
         6) ejecutar_juego ;;
         7) reproductor_musica ;;
         8) echo "Saliendo... ¡Hasta luego, $usuario!"; exit 0 ;;
         *) echo "Opción inválida. Intenta de nuevo." ;;
     esac
 done
-
