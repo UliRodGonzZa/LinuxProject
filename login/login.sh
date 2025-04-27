@@ -55,56 +55,10 @@ if [ $RESULTADO -eq 0 ]; then
     echo -e "${GREEN}"
     escribir_lento "[✓] Acceso concedido. Bienvenido $usuario" 0.02
     echo -e "${NC}"
-
-    cd "$(dirname "$0")/.."
+    sleep 1
+    clear
+    bash terminal.sh #Llamamos a la terminal
 else
     echo -e "${RED}[✗] Error: Contraseña incorrecta o fallo de autenticacion. Saliendo...${NC}"
     exit 1
 fi
-
-#Verificamos si esta instalado pemtester
-if ! command -v pamtester &> /dev/null; then
-    echo "pamtester no está instalado. No se puede validar la contraseña."
-    exit 1
-fi
-# Bucle principal
-while true; do
-    # Mostrar prompt
-    usuario=$(whoami)
-    directorio=$(pwd)
-    echo -n "$usuario@$directorio$ "
-
-    # Leer comando
-    read comando argumentos
-
-    case $comando in
-        ayuda)
-            bash comandos/ayuda.sh
-            ;;
-        infosis)
-            bash comandos/infosis.sh
-            ;;
-        fecha)
-            bash comandos/fecha.sh
-            ;;
-        buscar)
-            bash comandos/buscar.sh $argumentos
-            ;;
-        creditos)
-            bash creditos/creditos.sh
-            ;;
-        juego)
-            bash juego/juego.sh
-            ;;
-        musica)
-            bash musica/musica.sh
-            ;;
-        salir)
-            echo "Saliendo de la terminal. ¡Hasta luego!"
-            exit 0
-            ;;
-        *)
-            echo "Comando no reconocido. Escribe 'ayuda' para ver los comandos disponibles."
-            ;;
-    esac
-done
