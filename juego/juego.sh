@@ -1,29 +1,33 @@
 #!/bin/bash
 
-# Script juego.sh
-# Juego de Ahorcado
+#Script juego.sh CORREGIDO
+#Juego de Ahorcado funcional en Bash
 
-# Colores
+#Colores
 verde="\e[32m"
 rojo="\e[31m"
 amarillo="\e[33m"
 reset="\e[0m"
 
-# Palabras a adivinar
+#Palabras a adivinar
 palabras=("bash" "linux" "terminal" "sistema" "programa")
 
-# Eleccion de palabra aleatoria
+#Palabra aleatoria
 palabra=${palabras[$RANDOM % ${#palabras[@]}]}
 longitud=${#palabra}
 vidas=6
-guiones=$(printf '_%.0s' $(seq 1 $longitud))
+guiones=""
+for ((i=0; i<$longitud; i++)); do
+    guiones="${guiones}_"
+done
 
-# Función para mostrar el estado actual
+#Función para mostrar el estado actual del juego
 mostrar_estado() {
     echo -e "${amarillo}Palabra:${reset} $guiones"
     echo -e "${amarillo}Vidas restantes:${reset} $vidas"
 }
 
+#Inicio del juego principal
 while [ $vidas -gt 0 ]; do
     clear
     echo -e "${verde}===== AHORCADO =====${reset}"
@@ -32,7 +36,7 @@ while [ $vidas -gt 0 ]; do
     echo -n "Ingresa una letra: "
     read letra
 
-    # Validar que haya ingresado solo una letra
+    #Validacion para saber que solo se ingreso una letra
     if [[ ! $letra =~ ^[a-zA-Z]$ ]]; then
         echo -e "${rojo}Por favor, ingresa solo UNA letra válida.${reset}"
         sleep 1
@@ -47,8 +51,10 @@ while [ $vidas -gt 0 ]; do
         if [ "${palabra:$i:1}" == "$letra" ]; then
             nueva_guiones="${nueva_guiones}${letra}"
             acierto=1
+        elif [ "${guiones:$i:1}" != "_" ]; then
+            nueva_guiones="${nueva_guiones}${guiones:$i:1}"
         else
-            nueva_guiones="${nueva_guiones:${#nueva_guiones}}${guiones:$i:1}"
+            nueva_guiones="${nueva_guiones}_"
         fi
     done
 
