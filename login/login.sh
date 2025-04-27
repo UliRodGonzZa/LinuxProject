@@ -57,7 +57,6 @@ if [ $RESULTADO -eq 0 ]; then
     echo -e "${NC}"
     sleep 1
     clear
-    bash terminal.sh #Llamamos a la terminal
 else
     echo -e "${RED}[✗] Error: Contraseña incorrecta o fallo de autenticacion. Saliendo...${NC}"
     exit 1
