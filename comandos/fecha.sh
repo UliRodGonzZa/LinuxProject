@@ -18,7 +18,10 @@ if [ -f /proc/driver/rtc ]; then
     echo -e "${verde}Fecha actual:${reset} $fecha"
     echo -e "${verde}Hora actual:${reset} $hora"
 else
-    echo -e "${rojo}No se pudo obtener la fecha y hora del sistema.${reset}"
+    # Método 2: usar /proc/uptime como emergencia (menos exacto)
+    echo -e "${amarillo}Advertencia:${reset} No se encontró /proc/driver/rtc."
+    echo -e "${verde}Sistema iniciado hace:${reset}"
+    awk '{print int($1/3600)":"int(($1%3600)/60)" horas:minutos desde el arranque."}' /proc/uptime
 fi
 
 echo -e "${amarillo}==================================================${reset}"
